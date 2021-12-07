@@ -62,8 +62,11 @@
                             <td>{{$data->NamaJenisProduk}}</td>
                             <td>
                                 <div class="row">
+                                    <form name="Hapus" action="{{route('jenis_produk.destroy', $data->id)}}" method="post" id="Hapus">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
                                     <input type="submit" form="Hapus" class="btn btn-danger col-md-12 m-1" onclick="return confirm('Yakin untuk menghapus Jenis Produk ini?')" value="Hapus">
-                                    <a href="{{route('jenis_produk.edit', $data->id)}}" class="btn btn-success col-md-12 m-1">Ubah</a>
                                 </div>
                             </td>
                         </tr>
@@ -77,10 +80,6 @@
         <!-- /.card -->
     </div>
 </section>
-<form action="{{route('jenis_produk.destroy', $data->id)}}" method="post" id="Hapus">
-    @csrf
-    @method('DELETE')
-</form>
 @endsection
 
 @push('JS')

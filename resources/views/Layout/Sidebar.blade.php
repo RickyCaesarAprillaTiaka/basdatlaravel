@@ -98,7 +98,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
+                            <a href="{{route('rak-belanja.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Rak Belaja</p>
                             </a>

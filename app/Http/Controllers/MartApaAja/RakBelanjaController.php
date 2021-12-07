@@ -15,7 +15,8 @@ class RakBelanjaController extends Controller
      */
     public function index()
     {
-        //
+        $Rakbelanja = RakBelanja::paginate(10);
+        return view('Content.RakBelanja.Index', ['Rakbelanja' => $Rakbelanja]);
     }
 
     /**
@@ -25,7 +26,7 @@ class RakBelanjaController extends Controller
      */
     public function create()
     {
-        //
+        return view('Content.RakBelanja.Create');
     }
 
     /**
