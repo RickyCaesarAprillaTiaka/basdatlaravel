@@ -20,4 +20,6 @@ Route::get('/', function () {
 })->name('Home');
 
 Route::resource('/member', MemberController::class);
-Route::resource('/jenis_produk', JenisProdukController::class);
+Route::resource('/jenis_produk', JenisProdukController::class)->only([
+    'index', 'create', 'store', 'destroy'
+]);
