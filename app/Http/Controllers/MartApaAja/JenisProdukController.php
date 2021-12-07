@@ -86,6 +86,9 @@ class JenisProdukController extends Controller
      */
     public function destroy(JenisProduk $jenisProduk)
     {
-        //
+        $JenisProduk = JenisProduk::find($jenisProduk->id);
+        $JenisProduk->delete();
+
+        return redirect()->route('jenis_produk.index')->with('Success', 'Jenis Produk berhasil dihapus');
     }
 }
