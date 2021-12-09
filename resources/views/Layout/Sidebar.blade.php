@@ -82,8 +82,8 @@
                         <p>Member</p>
                     </a>
                 </li>
-                <li class="nav-item {{url()->current() == route('jenis_produk.index')|url()->current() == route('jenis_produk.create')?'menu-open':'' }}">
-                    <a href="javascript:void(0)" class="nav-link {{url()->current() == route('jenis_produk.index')|url()->current() == route('jenis_produk.create')?'active':'' }}">
+                <li class="nav-item {{url()->current() == route('jenis-produk.index')|url()->current() == route('jenis-produk.create')?'menu-open':'' }}">
+                    <a href="javascript:void(0)" class="nav-link {{url()->current() == route('jenis-produk.index')|url()->current() == route('jenis-produk.create')?'active':'' }}">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
                             Produk
@@ -92,7 +92,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('jenis_produk.index')}}" class="nav-link {{url()->current() == route('jenis_produk.index')|url()->current() == route('jenis_produk.create')?'active':''}}">
+                            <a href="{{route('jenis-produk.index')}}" class="nav-link {{url()->current() == route('jenis-produk.index')|url()->current() == route('jenis-produk.create')?'active':''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Jenis Produk</p>
                             </a>

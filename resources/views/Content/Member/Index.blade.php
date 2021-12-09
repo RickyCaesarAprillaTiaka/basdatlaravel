@@ -73,11 +73,11 @@
                             <td>{{date('d/m/Y', strtotime($data->created_at))}}</td>
                             <td>
                                 <div class="row">
-                                    <form name="Hapus" action="{{route('member.destroy', $data->id)}}" method="post" id="Hapus">
+                                    <form name="Hapus{{$data->id}}" action="{{route('member.destroy', $data->id)}}" method="post" id="Hapus{{$data->id}}">
                                         @csrf
                                         @method('DELETE')
                                     </form>
-                                    <input type="submit" form="Hapus" class="btn btn-danger col-md-12 m-1" onclick="return confirm('Yakin untuk menghapus member ini?')" value="Hapus">
+                                    <input type="submit" form="Hapus{{$data->id}}" class="btn btn-danger col-md-12 m-1" onclick="return confirm('Yakin untuk menghapus member ini?')" value="Hapus">
                                 </div>
                             </td>
                         </tr>

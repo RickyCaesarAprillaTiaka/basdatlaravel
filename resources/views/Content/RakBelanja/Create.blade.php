@@ -12,7 +12,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{route('member.index')}}">Jenis Produk</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('rak-belanja.index')}}">Jenis Produk</a></li>
                     <li class="breadcrumb-item active">Tambah Jenis Produk</li>
                 </ol>
             </div><!-- /.col -->
@@ -31,7 +31,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('jenis_produk.store')}}" method="POST">
+            <form action="{{route('jenis-produk.store')}}" method="POST">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">

@@ -21,11 +21,5 @@ Route::get('/', function () {
 })->name('Home');
 
 Route::resource('/member', MemberController::class);
-<<<<<<< HEAD
-Route::resource('/jenis_produk', JenisProdukController::class);
+Route::resource('/jenis-produk', JenisProdukController::class);
 Route::resource('/rak-belanja', RakBelanjaController::class);
-=======
-Route::resource('/jenis_produk', JenisProdukController::class)->only([
-    'index', 'create', 'store', 'destroy'
-]);
->>>>>>> 0b36a7527451e6cd6ed33f59f786659a8d68a7da

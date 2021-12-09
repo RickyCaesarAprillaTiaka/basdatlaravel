@@ -41,7 +41,7 @@ class JenisProdukController extends Controller
             'NamaJenisProduk' => $request->NamaJenisProduk,
         ]);
 
-        return redirect()->route('jenis_produk.index')->with('Success', 'Member berhasil ditambah');
+        return redirect()->route('jenis-produk.index')->with('Success', 'Member berhasil ditambah');
     }
 
     /**
@@ -89,6 +89,6 @@ class JenisProdukController extends Controller
         $JenisProduk = JenisProduk::find($jenisProduk->id);
         $JenisProduk->delete();
 
-        return redirect()->route('jenis_produk.index')->with('Success', 'Jenis Produk berhasil dihapus');
+        return redirect()->route('jenis-produk.index')->with('Success', 'Jenis Produk berhasil dihapus');
     }
 }

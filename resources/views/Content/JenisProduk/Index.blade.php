@@ -17,7 +17,7 @@
                 </ol>
             </div><!-- /.col -->
             <div class="col-sm-12">
-                <a href="{{route('jenis_produk.create')}}" class="btn btn-success float-sm-right"><i
+                <a href="{{route('jenis-produk.create')}}" class="btn btn-success float-sm-right"><i
                         class="far fa-plus-square"></i> Tambah Jenis Produk</a>
             </div>
         </div><!-- /.row -->
@@ -53,7 +53,7 @@
                     <tbody>
                         @if ($JenisProduks->count() == 0)
                         <tr>
-                            <td colspan="5" align="center">No Data</td>
+                            <td colspan="3" align="center">No Data</td>
                         </tr>
                         @else
                         @foreach ($JenisProduks as $data)
@@ -62,11 +62,11 @@
                             <td>{{$data->NamaJenisProduk}}</td>
                             <td>
                                 <div class="row">
-                                    <form name="Hapus" action="{{route('jenis_produk.destroy', $data->id)}}" method="post" id="Hapus">
+                                    <form name="Hapus{{$data->id}}" action="{{route('jenis-produk.destroy', $data->id)}}" method="post" id="Hapus{{$data->id}}">
                                         @csrf
                                         @method('DELETE')
                                     </form>
-                                    <input type="submit" form="Hapus" class="btn btn-danger col-md-12 m-1" onclick="return confirm('Yakin untuk menghapus Jenis Produk ini?')" value="Hapus">
+                                    <input type="submit" form="Hapus{{$data->id}}" class="btn btn-danger col-md-12 m-1" onclick="return confirm('Yakin untuk menghapus Jenis Produk ini?')" value="Hapus">
                                 </div>
                             </td>
                         </tr>
