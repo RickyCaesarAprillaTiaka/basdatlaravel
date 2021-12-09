@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MartApaAja;
 
 use App\Http\Controllers\Controller;
 use App\Models\RakBelanja;
+use App\Models\JenisProduk;
 use Illuminate\Http\Request;
 
 class RakBelanjaController extends Controller
@@ -26,7 +27,8 @@ class RakBelanjaController extends Controller
      */
     public function create()
     {
-        return view('Content.RakBelanja.Create');
+        $JenisProduks = JenisProduk::all();
+        return view('Content.RakBelanja.Create', ['JenisProduks' => $JenisProduks]);
     }
 
     /**
@@ -37,7 +39,16 @@ class RakBelanjaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        RakBelanja::create([
+            'NamaProduk' => $request->NamaProduk,
+            'MerkProduk' => $request->MerkProduk,
+            'JenisProduk' => $request->JenisProduk,
+            'PersediaanProduk' => $request->PersediaanProduk,
+            'HargaProduk' => $request->HargaProduk,
+            'DeskripsiProduk' => $request->DeskripsiProduk
+        ]);
+
+        return redirect()->route('rak-belanja.index')->with('Success', 'Rak Belanja berhasil ditambah');
     }
 
     /**
@@ -48,7 +59,7 @@ class RakBelanjaController extends Controller
      */
     public function show(RakBelanja $rakBelanja)
     {
-        //
+        
     }
 
     /**
@@ -59,7 +70,10 @@ class RakBelanjaController extends Controller
      */
     public function edit(RakBelanja $rakBelanja)
     {
-        //
+        $RakBelanja = RakBelanja::find($rakBelanja->id);
+        $JenisProduks = JenisProduk::all();
+
+        return view('Content.RakBelanja.Update', ['RakBelanja' => $RakBelanja, 'JenisProduks' => $JenisProduks]);
     }
 
     /**
@@ -71,7 +85,16 @@ class RakBelanjaController extends Controller
      */
     public function update(Request $request, RakBelanja $rakBelanja)
     {
-        //
+        RakBelanja::find($rakBelanja->id)->update([
+            'NamaProduk' => $request->NamaProduk,
+            'MerkProduk' => $request->MerkProduk,
+            'JenisProduk' => $request->JenisProduk,
+            'PersediaanProduk' => $request->PersediaanProduk,
+            'HargaProduk' => $request->HargaProduk,
+            'DeskripsiProduk' => $request->DeskripsiProduk
+        ]);
+
+        return redirect()->route('rak-belanja.index')->with('Success', 'Rak Belanja Berhasil diubah');
     }
 
     /**
@@ -82,6 +105,9 @@ class RakBelanjaController extends Controller
      */
     public function destroy(RakBelanja $rakBelanja)
     {
-        //
+        $RakBelanja = RakBelanja::find($rakBelanja->id);
+        $RakBelanja->delete();
+
+        return redirect()->route('rak-belanja.index')->with('Success', 'Rak Belanja berhasil dihapus');
     }
 }

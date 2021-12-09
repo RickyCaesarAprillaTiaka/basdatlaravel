@@ -82,8 +82,8 @@
                         <p>Member</p>
                     </a>
                 </li>
-                <li class="nav-item {{url()->current() == route('jenis-produk.index')|url()->current() == route('jenis-produk.create')?'menu-open':'' }}">
-                    <a href="javascript:void(0)" class="nav-link {{url()->current() == route('jenis-produk.index')|url()->current() == route('jenis-produk.create')?'active':'' }}">
+                <li class="nav-item {{url()->current() == route('jenis-produk.index')|url()->current() == route('jenis-produk.create')|url()->current() == route('rak-belanja.index')|url()->current() == route('rak-belanja.create')?'menu-open':'' }}">
+                    <a href="javascript:void(0)" class="nav-link {{url()->current() == route('jenis-produk.index')|url()->current() == route('jenis-produk.create')|url()->current() == route('rak-belanja.index')|url()->current() == route('rak-belanja.create')?'active':'' }}">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
                             Produk
@@ -98,7 +98,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('rak-belanja.index')}}" class="nav-link">
+                            <a href="{{route('rak-belanja.index')}}" class="nav-link {{url()->current() == route('rak-belanja.index')|url()->current() == route('rak-belanja.create')?'active':''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Rak Belaja</p>
                             </a>
@@ -106,7 +106,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('member.index')}}" class="nav-link">
+                    <a href="{{route('belanja.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-shopping-cart"></i>
                         <p>Belanja</p>
                     </a>

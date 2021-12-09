@@ -1,9 +1,6 @@
-@php
-    use Carbon\Carbon;
-@endphp
 @extends('Layout.Main')
 
-@section('title', 'Member')
+@section('title', 'Jenis Produk')
 
 @section('Content')
 <!-- Content Header (Page header) -->
@@ -11,17 +8,17 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Member</h1>
+                <h1 class="m-0">Belanja</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Member</li>
+                    <li class="breadcrumb-item active">Belanja</li>
                 </ol>
             </div><!-- /.col -->
             <div class="col-sm-12">
-                <a href="{{route('member.create')}}" class="btn btn-success float-sm-right"><i
-                        class="far fa-plus-square"></i> Tambah Member</a>
+                <a href="{{route('belanja.create')}}" class="btn btn-success float-sm-right"><i
+                        class="far fa-plus-square"></i> Tambah Belanja</a>
             </div>
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -38,9 +35,9 @@
         @endif
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Daftar Member</h3>
+                <h3 class="card-title">Daftar Belanja</h3>
                 <div class="card-tools">
-                    {{$Members->links()}}
+                    {{$StrukPembelanjaan->links()}}
                 </div>
             </div>
             <!-- /.card-header -->
@@ -49,36 +46,35 @@
                     <thead>
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th>Nama Lengkap Member</th>
-                            <th>No. Handphone Member</th>
-                            <th style="width: 30%;">Alamat Lengkap Member</th>
-                            <th>Level Member</th>
-                            <th>Tanggal Daftar Member</th>
+                            <th>Total Pembayaran</th>
+                            <th>Jenis Pembayaran</th>
+                            <th>Deskripsi Pembelanjaan</th>
+                            <th>Member</th>
+                            <th>Tanggal Struk</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($Members->count() == 0)
+                        @if ($StrukPembelanjaan->count() == 0)
                         <tr>
-                            <td colspan="5" align="center">No Data</td>
+                            <td colspan="7" align="center">No Data</td>
                         </tr>
                         @else
-                        @foreach ($Members as $data)
+                        @foreach ($StrukPembelanjaan as $data)
                         <tr>
                             <td>{{$data->id}}</td>
-                            <td>{{$data->NamaLengkapMember}}</td>
-                            <td>{{$data->NoHandphoneMember}}</td>
-                            <td>{{$data->AlamatLengkapMember}}</td>
-                            <td class="row"><span class="col-12 badge rounded-pill bg-@if ($data->LevelMember == 'Silver'){{'secondary'}}@elseif ($data->LevelMember == 'Gold'){{'warning'}}@else{{'primary'}}@endif">{{$data->LevelMember}}</span></td>
+                            <td>{{$data->TotalPembayaran}}</td>
+                            <td>{{$data->JenisPembayaran}}</td>
+                            <td>{{$data->DeskripsiPembelanjaan}}</td>
+                            <td>{{$data->StrukMemberRela->NamaLengkapMember}}</td>
                             <td>{{date('d/m/Y', strtotime($data->created_at))}}</td>
                             <td>
                                 <div class="row">
-                                    <form name="Hapus{{$data->id}}" action="{{route('member.destroy', $data->id)}}" method="post" id="Hapus{{$data->id}}">
+                                    <form name="Hapus" action="{{route('belanja.destroy', $data->id)}}" method="post" id="Hapus{{$data->id}}">
                                         @csrf
                                         @method('DELETE')
                                     </form>
-                                    <input type="submit" form="Hapus{{$data->id}}" class="btn btn-danger col-md-12 m-1" onclick="return confirm('Yakin untuk menghapus member ini?')" value="Hapus">
-                                    <a href="{{route('member.edit', $data->id)}}" class="btn btn-success col-md-12 m-1">Ubah</a>
+                                    <input type="submit" form="Hapus{{$data->id}}" class="btn btn-danger col-md-12 m-1" onclick="return confirm('Yakin untuk menghapus Jenis Produk ini?')" value="Hapus">
                                 </div>
                             </td>
                         </tr>

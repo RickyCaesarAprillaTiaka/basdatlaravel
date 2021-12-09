@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MartApaAja;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaksi;
+use App\Models\StrukPembelanjaan;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -15,7 +16,8 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        //
+        $StrukPembelanjaan = StrukPembelanjaan::paginate(10);
+        return view('Content.Belanja.Index', ['StrukPembelanjaan' => $StrukPembelanjaan]);
     }
 
     /**
@@ -25,7 +27,7 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        //
+        return view('Content.Belanja.Create');
     }
 
     /**

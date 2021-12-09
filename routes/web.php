@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MartApaAja\MemberController;
 use App\Http\Controllers\MartApaAja\JenisProdukController;
 use App\Http\Controllers\MartApaAja\RakBelanjaController;
+use App\Http\Controllers\MartApaAja\TransaksiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +24,4 @@ Route::get('/', function () {
 Route::resource('/member', MemberController::class);
 Route::resource('/jenis-produk', JenisProdukController::class);
 Route::resource('/rak-belanja', RakBelanjaController::class);
+Route::resource('/belanja', TransaksiController::class);

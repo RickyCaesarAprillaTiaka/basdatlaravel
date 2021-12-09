@@ -72,11 +72,12 @@
                             <td>{{$data->DeskripsiProduk}}</td>
                             <td>
                                 <div class="row">
-                                    <form name="Hapus" action="{{route('jenis-produk.destroy', $data->id)}}" method="post" id="Hapus">
+                                    <form name="Hapus" action="{{route('rak-belanja.destroy', $data->id)}}" method="post" id="Hapus{{$data->id}}">
                                         @csrf
                                         @method('DELETE')
                                     </form>
-                                    <input type="submit" form="Hapus" class="btn btn-danger col-md-12 m-1" onclick="return confirm('Yakin untuk menghapus Jenis Produk ini?')" value="Hapus">
+                                    <input type="submit" form="Hapus{{$data->id}}" class="btn btn-danger col-md-12 m-1" onclick="return confirm('Yakin untuk menghapus Jenis Produk ini?')" value="Hapus">
+                                    <a href="{{route('rak-belanja.edit', $data->id)}}" class="btn btn-success col-md-12 m-1">Ubah</a>
                                 </div>
                             </td>
                         </tr>

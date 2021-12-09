@@ -19,7 +19,7 @@ class RakBelanja extends Model
         'NamaProduk',
         'MerkProduk',
         'JenisProduk',
-        'PersedianProduk',
+        'PersediaanProduk',
         'HargaProduk',
         'DeskripsiProduk'
     ];

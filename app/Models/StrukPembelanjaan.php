@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Member;
+
 class StrukPembelanjaan extends Model
 {
     use HasFactory;
@@ -19,4 +21,9 @@ class StrukPembelanjaan extends Model
         'DeskripsiPembelanjaan',
         'StrukMember'
     ];
+
+    public function StrukMemberRela()
+    {
+        return $this->belongsTo(Member::class, 'StrukMember', 'id');
+    }
 }
