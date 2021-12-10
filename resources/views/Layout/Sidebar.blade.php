@@ -105,12 +105,6 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="{{route('belanja.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-shopping-cart"></i>
-                        <p>Belanja</p>
-                    </a>
-                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
